@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorentz Force Visualizer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lorentz Force Visualizer</h1>
+            <p>Interactive simulation of charged particle motion</p>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <div id="p5-canvas"></div>
+            </div>
+
+            <div class="control-panel">
+                <!-- Electric Field -->
+                <div class="control-section">
+                    <h3>Electric Field (E)</h3>
+                    <div class="control-group">
+                        <div class="label-value">
+                            <label for="e-magnitude">Magnitude (N/C):</label>
+                            <span id="e-magnitude-value">0.0</span>
+                        </div>
+                        <input type="range" id="e-magnitude" min="0" max="10" step="0.1" value="0">
+                    </div>
+                    <div class="control-group">
+                        <div class="label-value">
+                            <label for="e-angle">Angle (degrees):</label>
+                            <span id="e-angle-value">0</span>
+                        </div>
+                        <input type="range" id="e-angle" min="0" max="360" step="5" value="0">
+                    </div>
+                </div>
+
+                <!-- Magnetic Field -->
+                <div class="control-section">
+                    <h3>Magnetic Field (B)</h3>
+                    <div class="control-group">
+                        <div class="label-value">
+                            <label for="b-magnitude">Magnitude (T):</label>
+                            <span id="b-magnitude-value">0.0</span>
+                        </div>
+                        <input type="range" id="b-magnitude" min="0" max="10" step="0.1" value="0">
+                    </div>
+                    <div class="control-group">
+                        <label>Direction:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="b-direction" value="out" checked>
+                                Out ⊙
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="b-direction" value="in">
+                                Into ⊗
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Particle Parameters -->
+                <div class="control-section">
+                    <h3>Particle Parameters</h3>
+                    <div class="control-group">
+                        <label for="particle-charge">Charge q (C):</label>
+                        <input type="number" id="particle-charge" step="0.1" value="1.0">
+                    </div>
+                    <div class="control-group">
+                        <label for="particle-mass">Mass m (kg):</label>
+                        <input type="number" id="particle-mass" step="0.1" value="1.0">
+                    </div>
+                    <div class="control-group">
+                        <label for="particle-vx">Initial velocity vx (m/s):</label>
+                        <input type="number" id="particle-vx" step="0.1" value="1.0">
+                    </div>
+                    <div class="control-group">
+                        <label for="particle-vy">Initial velocity vy (m/s):</label>
+                        <input type="number" id="particle-vy" step="0.1" value="0.0">
+                    </div>
+                </div>
+
+                <!-- Simulation Controls -->
+                <div class="control-section">
+                    <h3>Simulation</h3>
+                    <div class="control-group">
+                        <div class="label-value">
+                            <label for="trail-length">Trail Length:</label>
+                            <span id="trail-length-value">200</span>
+                        </div>
+                        <input type="range" id="trail-length" min="10" max="1000" step="10" value="200">
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <button id="add-particle">Add Particle</button>
+                    <button id="play-pause">Play/Pause</button>
+                    <button id="step">Step</button>
+                    <button id="reset">Reset Values</button>
+                    <button id="clear">Clear All</button>
+                    <button id="measure-tool">Measure Tool</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/sketch.js"></script>
+</body>
+</html>

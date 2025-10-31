@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header {
+    text-align: center;
+    color: #1a5490;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 1.6em;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.main-content {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.canvas-container {
+    flex: 1;
+    min-width: 600px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+#p5-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-panel {
+    width: 320px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-height: 720px;
+    overflow-y: auto;
+}
+
+.control-panel h2 {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    color: #1a5490;
+    border-bottom: 2px solid #1a5490;
+    padding-bottom: 6px;
+    font-weight: 600;
+}
+
+.control-section {
+    margin-bottom: 8px;
+}
+
+.control-section h3 {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #1a5490;
+    font-weight: 600;
+}
+
+.control-group {
+    margin-bottom: 5px;
+}
+
+.label-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.label-value label {
+    font-weight: 500;
+    color: #555;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.label-value span {
+    font-weight: 600;
+    color: #1a5490;
+    font-size: 0.8em;
+    min-width: 35px;
+    text-align: right;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.8em;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 0;
+    height: 18px;
+}
+
+.control-group input[type="number"] {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.control-group input[type="number"]:focus {
+    outline: none;
+    border-color: #1a5490;
+}
+
+.control-group span {
+    display: inline-block;
+    min-width: 40px;
+    font-weight: 600;
+    color: #1a5490;
+    font-size: 0.85em;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: normal;
+    font-size: 0.75em;
+    background: white;
+    justify-content: center;
+}
+
+.radio-label:hover {
+    border-color: #1a5490;
+    background-color: #f0f7ff;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.radio-label:has(input[type="radio"]:checked) {
+    border-color: #1a5490;
+    background-color: #e3f2fd;
+    font-weight: 500;
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin: 8px 0;
+}
+
+button {
+    padding: 7px 10px;
+    background: #1a5490;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background: #2369b3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+}
+
+button:active {
+    background: #164070;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transform: translateY(1px);
+}
+
+button.active {
+    background: #667eea !important;
+    color: white !important;
+}
+
+/* スクロールバーのスタイル */
+.control-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.control-panel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.control-panel::-webkit-scrollbar-thumb {
+    background: #1a5490;
+    border-radius: 3px;
+}
+
+.control-panel::-webkit-scrollbar-thumb:hover {
+    background: #2369b3;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .control-panel {
+        width: 100%;
+        max-height: none;
+    }
+
+    .canvas-container {
+        min-width: 100%;
+    }
+}
